@@ -29,9 +29,10 @@ export const useMatchHistoryStore = defineStore('matchHistory', () => {
 
       const html = await res.text()
       const parsed = parsePoroRecentGames(html, summoner.value)
-      if (!parsed.length) throw new Error('Player not in a live game or no recent matches found')
-      matches.value = parsed
-      lastUpdated.value = new Date()
+      if (parsed.length) {
+        matches.value = parsed
+        lastUpdated.value = new Date()
+      }
     } catch (e) {
       error.value = e instanceof Error ? e.message : 'Fetch failed'
     } finally {
