@@ -76,8 +76,8 @@ function resolveGameType(raw: GameType | string, data: RawMatch[]): string {
   if (typeof raw === 'string') {
     const m = raw.match(/^\$\d+:data:(\d+):\w+$/)
     if (m) {
-      const src = data[parseInt(m[1])]?.game_type
-      if (typeof src === 'object' && src !== null) return src.game_translate
+      const src = data[parseInt(m[1]!)]?.game_type
+      if (src && typeof src === 'object') return src.game_translate
     }
   }
   return ''
