@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useMatchHistoryStore } from '@/stores/matchHistory'
-import type { LogMatch } from '@/lib/logParser'
+import type { OpggMatch } from '@/lib/opggParser'
 
 const store = useMatchHistoryStore()
 
-function toggleSelect(match: LogMatch) {
+function toggleSelect(match: OpggMatch) {
   store.selectMatch(store.selectedMatch === match ? null : match)
 }
 

@@ -2,6 +2,7 @@
   "routes": [
     { "src": "/proxy/poro/(?<path>.*)", "dest": "/api/poro?path=$path" },
     { "src": "/proxy/log/(?<path>.*)", "dest": "/api/log?path=$path" },
+    { "src": "/proxy/opgg/(?<path>.*)", "dest": "/api/opgg?path=$path" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]

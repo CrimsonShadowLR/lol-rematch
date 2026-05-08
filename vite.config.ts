@@ -32,6 +32,12 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/proxy\/log/, ''),
         headers: { ...BROWSER_HEADERS, Referer: 'https://www.leagueofgraphs.com/' },
       },
+      '/proxy/opgg': {
+        target: 'https://op.gg',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/proxy\/opgg/, ''),
+        headers: { ...BROWSER_HEADERS, Referer: 'https://op.gg/', Origin: 'https://op.gg' },
+      },
     },
   },
 })
