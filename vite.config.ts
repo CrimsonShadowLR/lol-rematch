@@ -26,11 +26,11 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/proxy\/poro/, ''),
         headers: { ...BROWSER_HEADERS, Referer: 'https://porofessor.gg/' },
       },
-      '/proxy/opgg': {
-        target: 'https://op.gg',
+      '/proxy/log': {
+        target: 'https://www.leagueofgraphs.com',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/proxy\/opgg/, ''),
-        headers: { ...BROWSER_HEADERS, Referer: 'https://op.gg/', Origin: 'https://op.gg' },
+        rewrite: (path) => path.replace(/^\/proxy\/log/, ''),
+        headers: { ...BROWSER_HEADERS, Referer: 'https://www.leagueofgraphs.com/' },
       },
     },
   },
