@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/proxy/poro/:path*", "destination": "/api/proxy/poro/:path*" },
+    { "source": "/proxy/opgg/:path*", "destination": "/api/proxy/opgg/:path*" }
+  ]
+}
