@@ -12,8 +12,8 @@ const BASE_HEADERS: Record<string, string> = {
 
 export default async function handler(req: Request): Promise<Response> {
   const url = new URL(req.url)
-  const targetPath = url.pathname.replace(/^\/api\/proxy\/opgg/, '')
-  const targetUrl = `https://op.gg${targetPath}${url.search}`
+  const targetPath = url.searchParams.get('path') ?? ''
+  const targetUrl = `https://op.gg/${targetPath}`
 
   const headers: Record<string, string> = { ...BASE_HEADERS }
   for (const h of FORWARD_HEADERS) {

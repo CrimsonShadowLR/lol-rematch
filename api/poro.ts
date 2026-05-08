@@ -9,8 +9,8 @@ const BASE_HEADERS: Record<string, string> = {
 
 export default async function handler(req: Request): Promise<Response> {
   const url = new URL(req.url)
-  const targetPath = url.pathname.replace(/^\/api\/proxy\/poro/, '')
-  const targetUrl = `https://porofessor.gg${targetPath}${url.search}`
+  const targetPath = url.searchParams.get('path') ?? ''
+  const targetUrl = `https://porofessor.gg/${targetPath}`
 
   const res = await fetch(targetUrl, {
     method: req.method,
